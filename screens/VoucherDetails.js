@@ -10,9 +10,24 @@ import {
 import Header from "./Header";
 import { gameImages } from "./gameImages";
 import { LinearGradient } from "expo-linear-gradient";
+import { useCart } from "../context/cartContext";
+import Toast from "react-native-toast-message";
 
 const VoucherDetails = ({ navigation, route }) => {
+  const { addToCart } = useCart();
   const { voucherId, category, price, discount } = route.params;
+
+  const handleAddToCart = () => {
+    addToCart({ id: voucherId, category, price, discount });
+    Toast.show({
+      type: "success",
+      text1: "Success",
+      text2: `Item added to cart successfully`,
+      position: "bottom",
+      text1Style: { fontSize: 15, fontWeight: "bold" },
+      text2Style: { fontSize: 15 },
+    });
+  };
 
   const images = gameImages[category] || gameImages.PubgMobile;
 
@@ -45,10 +60,8 @@ const VoucherDetails = ({ navigation, route }) => {
           colors={["#000000", "#0B8F4E"]}
           style={styles.buyButton}
         >
-          <TouchableOpacity
-            onPress={() => navigation.navigate("PaymentScreen")}
-          >
-            <Text style={styles.buyButtonText}>Buy Now</Text>
+          <TouchableOpacity onPress={handleAddToCart}>
+            <Text style={styles.buyButtonText}>Add to cart</Text>
           </TouchableOpacity>
         </LinearGradient>
       </View>

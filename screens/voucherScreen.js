@@ -33,7 +33,7 @@ const VoucherScreen = ({ navigation, route }) => {
       <View style={styles.comingSoonContainer}>
         <Text style={styles.comingSoonText}>Vouchers Coming Soon!</Text>
         <Image
-          source={require("./../img/commingsoon.png")} // Add an appropriate image for "coming soon"
+          source={require("../assets/img/commingsoon.png")} // Add an appropriate image for "coming soon"
           style={styles.comingSoonImage}
         />
       </View>
@@ -41,7 +41,7 @@ const VoucherScreen = ({ navigation, route }) => {
   }
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Header
         onMenuPress={() => navigation.toggleDrawer()}
         onCartPress={() => navigation.navigate("CartScreen")}
@@ -86,7 +86,7 @@ const VoucherScreen = ({ navigation, route }) => {
         numColumns={2} // Display two items in one row (grid layout)
         contentContainerStyle={styles.voucherList} // Padding around the grid
       />
-    </ScrollView>
+    </View>
   );
 };
 

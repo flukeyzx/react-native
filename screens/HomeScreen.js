@@ -7,7 +7,6 @@ import {
   Image,
   TouchableOpacity,
   StatusBar,
-  Dimensions,
 } from "react-native";
 import Header from "./Header";
 import BannerCarousel from "./BannerCarousel";
@@ -15,7 +14,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const HomeScreen = ({ navigation }) => (
   <ScrollView style={styles.container}>
-    <StatusBar></StatusBar>
+    <StatusBar />
     <Header
       onLogoPress={() => navigation.navigate("HomeScreen")}
       onCartPress={() => navigation.navigate("CartScreen")}
@@ -31,7 +30,10 @@ const HomeScreen = ({ navigation }) => (
       <Text style={styles.sectionTitle}>Categories</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {[
-          { name: "Gaming", image: require("./../img/Zari-GameZone1.jpg") },
+          {
+            name: "Gaming",
+            image: require("../assets/img/Zari-GameZone1.jpg"),
+          },
           {
             name: "Shopping",
             image: {
@@ -88,7 +90,7 @@ const HomeScreen = ({ navigation }) => (
             }
           >
             <Image
-              source={require("./../img/pubg.jpg")}
+              source={require("../assets/img/pubg.jpg")}
               style={styles.image}
               resizeMode="cover"
             />

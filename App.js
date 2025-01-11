@@ -1,6 +1,15 @@
 import React from "react";
-import AppNavigator from "./assets/screens/AppNavigator.js";
+import AppNavigator from "./screens/AppNavigator.js";
+import { CartProvider } from "./context/cartContext.jsx";
+import Toast from "react-native-toast-message";
 
-const App = () => <AppNavigator />;
+const App = () => {
+  return (
+    <CartProvider>
+      <AppNavigator />
+      <Toast />
+    </CartProvider>
+  );
+};
 
 export default App;
