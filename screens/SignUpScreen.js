@@ -31,7 +31,7 @@ const SignUpScreen = ({ navigation }) => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <ImageBackground
-        source={require("../assets/img/pubg.jpg")} // Replace with your image path
+        source={require("../assets/img/pubg.jpg")}
         style={styles.background}
         blurRadius={10}
       />

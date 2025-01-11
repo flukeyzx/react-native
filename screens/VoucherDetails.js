@@ -12,13 +12,16 @@ import { gameImages } from "./gameImages";
 import { LinearGradient } from "expo-linear-gradient";
 import { useCart } from "../context/cartContext";
 import Toast from "react-native-toast-message";
+import "react-native-get-random-values";
+import { v4 as uuid } from "uuid";
 
 const VoucherDetails = ({ navigation, route }) => {
   const { addToCart } = useCart();
-  const { voucherId, category, price, discount } = route.params;
+  const { category, price, discount } = route.params;
 
   const handleAddToCart = () => {
-    addToCart({ id: voucherId, category, price, discount });
+    const uniqueId = uuid();
+    addToCart({ id: uniqueId, category, price, discount });
     Toast.show({
       type: "success",
       text1: "Success",
@@ -46,7 +49,6 @@ const VoucherDetails = ({ navigation, route }) => {
         </View>
       </View>
 
-      {/* Voucher Details Section */}
       <View style={styles.voucherDetailsCard}>
         <Text style={styles.voucherTitle}>{`$${price} Voucher`}</Text>
         <Text style={styles.voucherDiscount}>{`${discount} Off`}</Text>

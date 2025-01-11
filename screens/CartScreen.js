@@ -49,7 +49,7 @@ const CartScreen = ({ navigation }) => {
                   {formatCamelCase(item.category)}
                 </Text>
                 <Text style={styles.cartPrice}>
-                  ${item.price} on ${item.discount} discount
+                  ${item.price} on {item.discount} discount
                 </Text>
               </View>
               <TouchableOpacity
@@ -67,7 +67,6 @@ const CartScreen = ({ navigation }) => {
         </View>
       )}
 
-      {/* Checkout Button */}
       {cart.length > 0 && (
         <TouchableOpacity
           style={styles.checkoutButton}

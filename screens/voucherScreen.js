@@ -9,12 +9,11 @@ import {
   FlatList,
 } from "react-native";
 import Header from "./Header";
-import { gameImages } from "./gameImages"; // Import the game images object
+import { gameImages } from "./gameImages";
 
 const VoucherScreen = ({ navigation, route }) => {
-  const { category } = route.params || {}; // Category passed from the previous screen
+  const { category } = route.params || {};
 
-  // Sample vouchers data for dynamic rendering
   const vouchers = [
     { price: 10, discount: "5%", id: 1 },
     { price: 20, discount: "10%", id: 2 },
@@ -33,7 +32,7 @@ const VoucherScreen = ({ navigation, route }) => {
       <View style={styles.comingSoonContainer}>
         <Text style={styles.comingSoonText}>Vouchers Coming Soon!</Text>
         <Image
-          source={require("../assets/img/commingsoon.png")} // Add an appropriate image for "coming soon"
+          source={require("../assets/img/commingsoon.png")}
           style={styles.comingSoonImage}
         />
       </View>
@@ -46,7 +45,7 @@ const VoucherScreen = ({ navigation, route }) => {
         onMenuPress={() => navigation.toggleDrawer()}
         onCartPress={() => navigation.navigate("CartScreen")}
       />
-      {/* Game Banner */}
+
       <View style={styles.banner}>
         <Image source={images.banner} style={styles.bannerImage} />
         <View style={styles.bannerOverlay}>
@@ -64,16 +63,13 @@ const VoucherScreen = ({ navigation, route }) => {
             onPress={() =>
               navigation.navigate("VoucherDetails", {
                 voucherId: item.id,
-                category: category, // Pass game category (name)
+                category: category,
                 price: item.price,
                 discount: item.discount,
               })
             }
           >
-            <Image
-              source={images.voucher} // Using the voucher image from the game object
-              style={styles.voucherImage}
-            />
+            <Image source={images.voucher} style={styles.voucherImage} />
             <View style={styles.voucherInfo}>
               <Text
                 style={styles.voucherTitle}
@@ -83,8 +79,8 @@ const VoucherScreen = ({ navigation, route }) => {
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item.id.toString()}
-        numColumns={2} // Display two items in one row (grid layout)
-        contentContainerStyle={styles.voucherList} // Padding around the grid
+        numColumns={2}
+        contentContainerStyle={styles.voucherList}
       />
     </View>
   );

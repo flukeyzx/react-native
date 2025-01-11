@@ -21,7 +21,7 @@ const Header = ({ onLogoPress, onCartPress }) => {
       <LinearGradient colors={["#000000", "#000000"]} style={styles.gradient} />
       <View style={styles.header}>
         <TouchableOpacity onPress={onLogoPress}>
-          <Image source={require("./logo.png")} style={styles.logo} />
+          <Image source={require("../assets/logo.png")} style={styles.logo} />
         </TouchableOpacity>
         <TextInput
           placeholder="Search vouchers"
@@ -73,17 +73,17 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   logo: {
-    height: 40, // Adjusted for better visibility
+    height: 40,
     width: 40,
-    resizeMode: "contain", // Ensures the image maintains aspect ratio
+    resizeMode: "contain",
   },
   cartButton: {
     position: "relative",
   },
   badge: {
     position: "absolute",
-    top: -5, // Adjust positioning as needed
-    right: -10, // Adjust positioning as needed
+    top: -5,
+    right: -10,
     backgroundColor: "red",
     borderRadius: 10,
     height: 20,

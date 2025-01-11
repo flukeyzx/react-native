@@ -1,4 +1,3 @@
-// assets.js (or any suitable filename for your images)
 export const gameImages = {
   PubgMobile: {
     banner: {

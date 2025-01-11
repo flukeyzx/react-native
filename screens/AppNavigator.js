@@ -3,9 +3,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 import SignUpScreen from "./SignUpScreen";
-import LoginScreen from "./loginScreen";
+import LoginScreen from "./LoginScreen";
 import HomeScreen from "./HomeScreen";
-import VoucherScreen from "./voucherScreen";
+import VoucherScreen from "./VoucherScreen";
 import CartScreen from "./CartScreen";
 import VoucherDetails from "./VoucherDetails";
 import PaymentScreen from "./PaymentScreen";

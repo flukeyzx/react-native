@@ -8,9 +8,10 @@ import {
   ScrollView,
   Alert,
 } from "react-native";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons"; // For card icons
-import FontAwesome from "react-native-vector-icons/FontAwesome"; // For credit card icons
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { useCart } from "../context/cartContext";
 
 const PaymentScreen = ({ navigation, route }) => {
   const [cardNumber, setCardNumber] = useState("");
@@ -18,6 +19,7 @@ const PaymentScreen = ({ navigation, route }) => {
   const [cvv, setCvv] = useState("");
   const [name, setName] = useState("");
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const { setCart } = useCart();
 
   const handlePayment = () => {
     if (cardNumber && expiryDate && cvv && name) {
@@ -27,6 +29,7 @@ const PaymentScreen = ({ navigation, route }) => {
           onPress: () => navigation.navigate("HomeScreen"),
         },
       ]);
+      setCart([]);
     } else {
       Alert.alert("Payment Failed", "Please fill in all the fields.");
     }
@@ -58,7 +61,6 @@ const PaymentScreen = ({ navigation, route }) => {
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Secure Payment</Text>
 
-      {/* Payment Form */}
       <TextInput
         style={styles.input}
         placeholder="Cardholder Name"
@@ -104,14 +106,13 @@ const PaymentScreen = ({ navigation, route }) => {
         />
       )}
 
-      {/* Card Icons */}
       <View style={styles.cardIcons}>
         <FontAwesome name="cc-visa" size={40} color="#3C8DBC" />
         <FontAwesome name="cc-mastercard" size={40} color="#FF5A5F" />
         <FontAwesome name="cc-amex" size={40} color="#0073E6" />
         <FontAwesome name="cc-discover" size={40} color="#FF9900" />
       </View>
-      {/* Add Another Card */}
+
       <TouchableOpacity style={styles.paymentCard}>
         <Icon name="credit-card" size={30} color="#42BA96" />
         <Text style={styles.paymentCardText}>Add Another Card</Text>
@@ -136,12 +137,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#121212", // Black theme
+    backgroundColor: "#121212",
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#42BA96", // Green color
+    color: "#42BA96",
     marginBottom: 20,
     textAlign: "center",
   },
@@ -151,13 +152,13 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   input: {
-    backgroundColor: "#1F1F1F", // Dark input background
+    backgroundColor: "#1F1F1F",
     padding: 15,
     borderRadius: 10,
     marginBottom: 15,
     borderWidth: 1,
     borderColor: "#333",
-    color: "#fff", // Input text color
+    color: "#fff",
   },
   row: {
     flexDirection: "row",
