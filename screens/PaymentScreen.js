@@ -51,8 +51,8 @@ const PaymentScreen = ({ navigation, route }) => {
   const handleDateChange = (event, selectedDate) => {
     setShowDatePicker(false);
     if (selectedDate) {
-      const month = selectedDate.getMonth() + 1; // Months are zero-indexed
-      const year = selectedDate.getFullYear().toString().slice(-2); // Get last two digits of year
+      const month = selectedDate.getMonth() + 1;
+      const year = selectedDate.getFullYear().toString().slice(-2);
       setExpiryDate(`${month < 10 ? `0${month}` : month}/${year}`);
     }
   };
@@ -73,7 +73,7 @@ const PaymentScreen = ({ navigation, route }) => {
         placeholder="Card Number"
         placeholderTextColor="#808080"
         value={cardNumber}
-        onChangeText={(text) => setCardNumber(text.replace(/\D/g, ""))} // Allow only digits
+        onChangeText={(text) => setCardNumber(text.replace(/\D/g, ""))}
         keyboardType="numeric"
         maxLength={16}
       />
@@ -91,7 +91,7 @@ const PaymentScreen = ({ navigation, route }) => {
           placeholder="CVV"
           placeholderTextColor="#808080"
           value={cvv}
-          onChangeText={(text) => setCvv(text.replace(/\D/g, ""))} // Allow only digits
+          onChangeText={(text) => setCvv(text.replace(/\D/g, ""))}
           keyboardType="numeric"
           maxLength={3}
         />
